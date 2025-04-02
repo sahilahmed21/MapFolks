@@ -133,7 +133,7 @@ export default function ProfileForm({ profile = {}, onSubmit }: { profile?: Prof
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="max-h-[calc(100vh-theme(spacing.20))] overflow-y-auto scroll-smooth">
       <Tabs defaultValue="basic" value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid grid-cols-3 mb-4 bg-custom-secondary">
           <TabsTrigger
@@ -487,4 +487,3 @@ export default function ProfileForm({ profile = {}, onSubmit }: { profile?: Prof
     </form>
   )
 }
-
