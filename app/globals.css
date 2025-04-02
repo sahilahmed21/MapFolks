@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 65 45% 95%;
+    --foreground: 240 15% 40%;
+    --card: 65 45% 95%;
+    --card-foreground: 240 15% 40%;
+    --popover: 65 45% 95%;
+    --popover-foreground: 240 15% 40%;
+    --primary: 240 25% 75%;
+    --primary-foreground: 65 45% 95%;
+    --secondary: 190 25% 82%;
+    --secondary-foreground: 240 15% 40%;
+    --muted: 190 25% 82%;
+    --muted-foreground: 240 15% 60%;
+    --accent: 120 20% 85%;
+    --accent-foreground: 240 15% 40%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 65 45% 95%;
+    --success: 120 20% 85%;
+    --success-foreground: 240 15% 40%;
+    --border: 190 25% 82%;
+    --input: 190 25% 82%;
+    --ring: 240 25% 75%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 15% 20%;
+    --foreground: 65 45% 95%;
+    --card: 240 15% 20%;
+    --card-foreground: 65 45% 95%;
+    --popover: 240 15% 20%;
+    --popover-foreground: 65 45% 95%;
+    --primary: 240 25% 75%;
+    --primary-foreground: 240 15% 20%;
+    --secondary: 190 25% 40%;
+    --secondary-foreground: 65 45% 95%;
+    --muted: 190 25% 40%;
+    --muted-foreground: 65 45% 85%;
+    --accent: 120 20% 40%;
+    --accent-foreground: 65 45% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 65 45% 95%;
+    --success: 120 20% 40%;
+    --success-foreground: 65 45% 95%;
+    --border: 190 25% 40%;
+    --input: 190 25% 40%;
+    --ring: 240 25% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom utility classes */
+.bg-custom-primary {
+  background-color: #525a97;
+}
+.bg-custom-secondary {
+  background-color: #c7d9dd;
+}
+.bg-custom-accent {
+  background-color: #d5e5d5;
+}
+.bg-custom-background {
+  background-color: #eef1da;
+}
+.text-custom-primary {
+  color: #18181b;
+}
+.text-custom-secondary {
+  color: #294a52;
+}
+.text-custom-accent {
+  color: #478147;
+}
+.text-custom-background {
+  color: #eef1da;
+}
+.border-custom-primary {
+  border-color: #3a4486;
+}
+.border-custom-secondary {
+  border-color: #c7d9dd;
+}
+.border-custom-accent {
+  border-color: #d5e5d5;
+}
+.border-custom-background {
+  border-color: #eef1da;
+}
+
+/* Sidebar layout adjustments */
+.sidebar-open {
+  --sidebar-width: 16rem; /* Matches w-64 */
+}
+
+.sidebar-closed {
+  --sidebar-width: 0rem; /* Hidden on mobile */
+}
+
+@media (min-width: 768px) {
+  .sidebar-closed {
+    --sidebar-width: 4rem; /* Matches w-16 on desktop */
+  }
+}
+
+/* Adjust the main content's margin based on the sidebar width */
+.sidebar-open ~ .flex-1,
+.sidebar-closed ~ .flex-1 {
+  margin-left: var(--sidebar-width);
+  transition: margin-left 300ms ease-in-out;
+}
